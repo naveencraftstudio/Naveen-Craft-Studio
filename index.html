@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Craft Studio | Interior, Exterior & 2D/3D Design, Chennai</title>
+<meta name="description" content="Naveen Craft Studio in Chennai offers interior design, exterior design, and 2D and 3D design services for homes and commercial spaces.">
+<style>
+  :root {
+    --gold: #C9952B;
+    --gold-light: #E8C36A;
+    --black: #141414;
+    --charcoal: #222222;
+    --cream: #F8F4EC;
+    --white: #FFFFFF;
+    --text: #2B2B2B;
+    --muted: #6B6B6B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .container { width: min(1100px, 92%); margin: 0 auto; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: var(--black); border-bottom: 2px solid var(--gold); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; flex-wrap: wrap; gap: 12px; }
+  .brand img { height: 56px; width: auto; }
+  .nav ul { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+  .nav a { color: var(--white); text-decoration: none; font-size: 15px; letter-spacing: 0.5px; }
+  .nav a:hover { color: var(--gold-light); }
+
+  /* Hero */
+  .hero { background: linear-gradient(120deg, rgba(20,20,20,0.92), rgba(20,20,20,0.7)), var(--black); color: var(--white); padding: 110px 0 100px; text-align: center; }
+  .hero h1 { font-size: clamp(32px, 5vw, 52px); color: var(--gold-light); letter-spacing: 1px; margin-bottom: 14px; }
+  .hero p.tagline { font-size: clamp(16px, 2.2vw, 20px); letter-spacing: 4px; text-transform: uppercase; color: var(--white); margin-bottom: 30px; }
+  .btn { display: inline-block; background: var(--gold); color: var(--black); padding: 14px 30px; text-decoration: none; font-weight: bold; letter-spacing: 0.5px; border-radius: 2px; }
+  .btn:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--gold); margin-left: 12px; }
+  .btn-outline:hover { background: var(--gold); color: var(--black); }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  section.alt { background: var(--cream); }
+  h2 { font-size: clamp(26px, 3.5vw, 36px); color: var(--black); margin-bottom: 14px; }
+  h2 span { color: var(--gold); }
+  .section-intro { color: var(--muted); max-width: 720px; margin-bottom: 40px; }
+  .gold-line { width: 70px; height: 3px; background: var(--gold); margin-bottom: 20px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+  .about-grid p { margin-bottom: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stat { background: var(--black); color: var(--white); padding: 24px 12px; text-align: center; border-bottom: 3px solid var(--gold); }
+  .stat strong { display: block; font-size: 26px; color: var(--gold-light); }
+  .stat span { font-size: 13px; letter-spacing: 0.5px; }
+
+  /* Services */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+  .card { background: var(--white); border: 1px solid #E6DCC6; border-top: 4px solid var(--gold); padding: 30px 24px; }
+  .card h3 { font-size: 20px; color: var(--black); margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
+  .card ul { padding-left: 18px; color: var(--muted); font-size: 14px; }
+  .card li { margin-bottom: 4px; }
+
+  /* Portfolio */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+  .shot { background: var(--cream); border: 1px solid #E6DCC6; }
+  .shot .frame { aspect-ratio: 4 / 3; background: linear-gradient(135deg, #2a2a2a, #111); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .shot .frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .shot .frame .ph { color: var(--gold-light); font-size: 14px; letter-spacing: 1px; text-align: center; padding: 10px; }
+  .shot figcaption { padding: 14px 16px; font-size: 14px; color: var(--muted); }
+  .shot figcaption strong { color: var(--black); display: block; font-size: 15px; }
+  .tag { display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; counter-reset: step; }
+  .step { padding: 24px; border-left: 3px solid var(--gold); background: var(--white); }
+  .step b { display: block; color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-bottom: 6px; }
+  .step h4 { color: var(--black); margin-bottom: 6px; }
+  .step p { font-size: 14px; color: var(--muted); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; }
+  .info p { margin-bottom: 18px; }
+  .info strong { display: block; color: var(--black); }
+  form { display: grid; gap: 14px; background: var(--cream); padding: 30px; border-top: 4px solid var(--gold); }
+  label { font-size: 14px; font-weight: bold; color: var(--black); display: block; margin-bottom: 4px; }
+  input, select, textarea { width: 100%; padding: 12px; border: 1px solid #CFC5AC; font: inherit; background: var(--white); }
+  textarea { min-height: 110px; resize: vertical; }
+  form button { background: var(--black); color: var(--gold-light); border: none; padding: 14px; font-size: 16px; font-weight: bold; letter-spacing: 1px; cursor: pointer; }
+  form button:hover { background: var(--gold); color: var(--black); }
+
+  footer { background: var(--black); color: #CFCFCF; padding: 30px 0; text-align: center; font-size: 14px; border-top: 2px solid var(--gold); }
+  footer strong { color: var(--gold-light); }
+
+  @media (max-width: 800px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .btn-outline { margin-left: 0; margin-top: 12px; }
+    .nav ul { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home"><img src="images/logo.png" alt="Naveen Craft Studio logo"></a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <h1>NAVEEN CRAFT STUDIO</h1>
+    <p class="tagline">Shaping your dreams into reality</p>
+    <a class="btn" href="#contact">Start Your Project</a>
+    <a class="btn btn-outline" href="#portfolio">View Our Work</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="gold-line"></div>
+      <h2>About <span>Naveen Craft Studio</span></h2>
+      <p>Naveen Craft Studio is a design studio in Chennai that turns ideas into spaces people love to live and work in. We design interiors, exteriors, and complete building layouts, bringing together function, comfort, and style in every project.</p>
+      <p>Our process starts with understanding how you live or work. We then develop plans, visualize the finished space in 3D, and refine the design with you until every detail feels right. Clients come to us for a clear, transparent process from first sketch to final render.</p>
+      <p>Whether it is a single room, a new home, or a full building facade, we approach each project with care, precision, and a commitment to making your vision a reality.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>3</strong><span>Design disciplines</span></div>
+      <div class="stat"><strong>2D + 3D</strong><span>Plans & renders</span></div>
+      <div class="stat"><strong>End-to-end</strong><span>Concept to delivery</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="alt" id="services">
+  <div class="container">
+    <div class="gold-line"></div>
+    <h2>Our <span>Services</span></h2>
+    <p class="section-intro">From the layout of a room to the look of a building's exterior, we provide design services for homes, apartments, villas, and commercial spaces.</p>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Interior Design</h3>
+        <p>Spaces designed around how you live, with a focus on comfort, storage, and style.</p>
+        <ul>
+          <li>Living, dining, and bedroom design</li>
+          <li>Modular kitchens and wardrobes</li>
+          <li>Lighting, materials, and furniture selection</li>
+          <li>Office and commercial interiors</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Exterior Design</h3>
+        <p>Building facades and outdoor spaces that make a strong first impression.</p>
+        <ul>
+          <li>Elevation and facade design</li>
+          <li>Color, texture, and material planning</li>
+          <li>Compound walls and gates</li>
+          <li>Landscape and outdoor living areas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2D Design</h3>
+        <p>Accurate plans that serve as the foundation for every project.</p>
+        <ul>
+          <li>Floor plans and room layouts</li>
+          <li>Electrical and furniture layouts</li>
+          <li>Space planning and measured drawings</li>
+          <li>Plans for approvals and construction</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>3D Design</h3>
+        <p>Photorealistic renders so you can see the finished space before work begins.</p>
+        <ul>
+          <li>Interior 3D renders</li>
+          <li>Exterior 3D renders</li>
+          <li>Walkthroughs and multiple view angles</li>
+          <li>Design revisions shown visually</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="gold-line"></div>
+    <h2>Our <span>Portfolio</span></h2>
+    <p class="section-intro">A selection of our interior renders, exterior renders, and 2D plans.</p>
+    <div class="gallery">
+      <figure class="shot">
+        <div class="frame">
+          <img src="images/interior-render.jpg" alt="Interior 3D render" onerror="this.remove()">
+          <div class="ph">Interior render<br>(image to be added)</div>
+        </div>
+        <figcaption><span class="tag">Interior</span><strong>Interior 3D Render</strong>Living and dining space design.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame">
+          <img src="images/exterior-render.jpg" alt="Exterior 3D render" onerror="this.remove()">
+          <div class="ph">Exterior render<br>(image to be added)</div>
+        </div>
+        <figcaption><span class="tag">Exterior</span><strong>Exterior 3D Render</strong>Building facade and elevation design.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame">
+          <img src="images/2d-plan.jpg" alt="2D floor plan" onerror="this.remove()">
+          <div class="ph">2D plan<br>(image to be added)</div>
+        </div>
+        <figcaption><span class="tag">2D Design</span><strong>Floor Plan</strong>Detailed layout of the building.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="alt" id="process">
+  <div class="container">
+    <div class="gold-line"></div>
+    <h2>How We <span>Work</span></h2>
+    <p class="section-intro">A simple, transparent process from first conversation to finished design.</p>
+    <div class="steps">
+      <div class="step"><b>STEP 01</b><h4>Consultation</h4><p>We learn about your space, needs, and budget.</p></div>
+      <div class="step"><b>STEP 02</b><h4>2D Planning</h4><p>We prepare accurate layouts and measured plans.</p></div>
+      <div class="step"><b>STEP 03</b><h4>3D Visualization</h4><p>You see the design as renders before any work starts.</p></div>
+      <div class="step"><b>STEP 04</b><h4>Revisions</h4><p>We refine the design together until you are satisfied.</p></div>
+      <div class="step"><b>STEP 05</b><h4>Delivery</h4><p>You receive final drawings, renders, and execution support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="info">
+      <div class="gold-line"></div>
+      <h2>Let's <span>Talk</span></h2>
+      <p>Tell us about your project and we will get back to you to arrange a consultation.</p>
+      <p><strong>Address</strong>No.32, Aringar Anna Avenue, Kesavardhini, Valasaravakkam, Chennai - 600087</p>
+      <p><strong>Phone</strong><a href="tel:+918015471938">+91 80154 71938</a></p>
+      <p><strong>Email</strong><a href="mailto:naveencraftstudio@gmail.com">naveencraftstudio@gmail.com</a></p>
+    </div>
+
+    <form action="mailto:naveencraftstudio@gmail.com" method="post" enctype="text/plain">
+      <div>
+        <label for="name">Your Name</label>
+        <input id="name" name="Name" type="text" required>
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="Phone" type="tel" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="Email" type="email">
+      </div>
+      <div>
+        <label for="service">Service Required</label>
+        <select id="service" name="Service">
+          <option>Interior Design</option>
+          <option>Exterior Design</option>
+          <option>2D Design</option>
+          <option>3D Design</option>
+          <option>Multiple services</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Project Details</label>
+        <textarea id="message" name="Message" placeholder="Property type, location, size, and any ideas you have"></textarea>
+      </div>
+      <button type="submit">SEND ENQUIRY</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>NAVEEN CRAFT STUDIO</strong></p>
+    <p>Shaping your dreams into reality</p>
+    <p>&copy; 2026 Naveen Craft Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
